@@ -3,4 +3,7 @@ module.exports = function(app) {
 
   app.route('/api/register')
     .post(userController.register);
+  
+    app.route('/api/auth')
+      .post(userController.login);
 }

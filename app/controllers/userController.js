@@ -27,3 +27,15 @@ exports.register = async function (req, res) {
     email: user.email
   });
 }
+
+exports.login = async (req, res) => {
+  let user = await User.findOne({ email: req.body.email });
+  if(!user) return res.status(404).send('Incorrect email or password');
+
+  const vaildPassword = await bcrypt.compare(req.body.password, user.password);
+  if(!vaildPassword) {
+    return res.status(400).send('Incorrect email or password');
+  }
+  // if passwords match
+  res.send(true);
+}
