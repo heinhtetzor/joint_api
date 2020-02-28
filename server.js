@@ -3,7 +3,8 @@ var express = require('express'),
   mongoose = require('mongoose'),
   bodyParser = require('body-parser'),
   PORT = process.env.PORT || 8000,
-  cors = require('cors');
+  cors = require('cors')
+  require('dotenv').config();
 
 var userRoutes = require('./app/routes/userRoutes');
 
@@ -13,7 +14,7 @@ var options = {
 }
 
 // var url = 'mongodb://localhost:27017/joint';
-var url = 'mongodb://nayyaung9:nyll20112001@ds239797.mlab.com:39797/joint'
+var url = `mongodb://${process.env.DB_NAME}:${process.env.DB_PASSWORD}@ds239797.mlab.com:39797/joint`;
 
 if (mongoose.connection.readyState != 1) {
   mongoose.Promise = global.Promise;
