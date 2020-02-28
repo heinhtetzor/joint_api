@@ -12,7 +12,8 @@ var options = {
   useUnifiedTopology: true
 }
 
-var url = 'mongodb://localhost:27017/joint';
+// var url = 'mongodb://localhost:27017/joint';
+var url = 'mongodb://nayyaung9:nyll20112001@ds239797.mlab.com:39797/joint'
 
 if (mongoose.connection.readyState != 1) {
   mongoose.Promise = global.Promise;
