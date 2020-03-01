@@ -1,7 +1,6 @@
 var mongoose = require('mongoose');
 var config = require('config');
 var jwt = require('jsonwebtoken');
-var Joi = require('joi');
 var Schema = mongoose.Schema;
 
 var UserSchema = new Schema({

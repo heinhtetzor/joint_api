@@ -6,6 +6,7 @@ var express = require('express'),
   cors = require('cors')
   require('dotenv').config();
 
+var authRoutes = require('./app/routes/authRoutes');
 var userRoutes = require('./app/routes/userRoutes');
 
 var options = {
@@ -34,6 +35,7 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
+authRoutes(app);
 userRoutes(app);
 
 app.listen(PORT, () => console.log(`We are live on ${PORT}`));
